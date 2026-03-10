@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bài 1 - Carousel</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <main class="page-wrap">
+    <nav class="top-nav">
+      <a href="./index.html">Trang chủ</a>
+      <a href="./lythuyet.html">Lý thuyết</a>
+      <a href="./baitap02.html">Bài 2</a>
+      <a href="./baitap03.html">Bài 3</a>
+    </nav>
+
+    <h1>Bài 1: Carousel ảnh</h1>
+    <p>Slide tự động 3 giây, có nút next/prev, responsive và không tràn chỉ số.</p>
+
+    <section class="panel" data-carousel>
+      <div class="carousel">
+        <div class="carousel-track">
+          <div class="slide slide-1">Slide 1</div>
+          <div class="slide slide-2">Slide 2</div>
+          <div class="slide slide-3">Slide 3</div>
+          <div class="slide slide-4">Slide 4</div>
+          <div class="slide slide-5">Slide 5</div>
+          <div class="slide slide-6">Slide 6</div>
+        </div>
+        <button class="carousel-btn prev" type="button" aria-label="Slide trước">&#10094;</button>
+        <button class="carousel-btn next" type="button" aria-label="Slide sau">&#10095;</button>
+      </div>
+      <div class="carousel-dots" aria-label="Điều hướng slide"></div>
+    </section>
+
+    <section class="panel explain">
+      <h2>Giải thích logic tư duy</h2>
+      <ul>
+        <li>Quản lý <strong>index</strong> hiện tại, mỗi lần chuyển slide chỉ đổi giá trị index và translate track theo <code>-index * 100%</code>.</li>
+        <li>Để tránh ngoài giới hạn, dùng logic vòng tròn: index &lt; 0 thì về slide cuối, index &gt;= tổng slide thì về 0.</li>
+        <li>Auto slide dùng <code>setInterval(3000)</code>; khi người dùng bấm next/prev hoặc dot thì reset timer để trải nghiệm mượt.</li>
+        <li>Tối ưu performance: chỉ animate bằng <code>transform</code> thay vì đổi left/margin, giúp render ổn định hơn.</li>
+        <li>Responsive: slide dùng <code>aspect-ratio</code> + width 100%, trên mobile vẫn giữ bố cục đẹp.</li>
+      </ul>
+    </section>
+  </main>
+
+  <script src="./js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bài 3 - Guess Number</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <main class="page-wrap" id="guess-game">
+    <nav class="top-nav">
+      <a href="./index.html">Trang chủ</a>
+      <a href="./lythuyet.html">Lý thuyết</a>
+      <a href="./baitap01.html">Bài 1</a>
+      <a href="./baitap02.html">Bài 2</a>
+    </nav>
+
+    <h1>Bài 3: Game đoán số (1-100)</h1>
+    <p>Nhập số, hệ thống so sánh cao/thấp/đúng, đếm số lần thử và pháo hoa khi đoán trúng.</p>
+
+    <section class="panel guess-box">
+      <label for="guess-input">Số bạn đoán:</label>
+      <div class="guess-actions">
+        <input id="guess-input" type="number" min="1" max="100" placeholder="Ví dụ: 42">
+        <button id="guess-btn" type="button">Đoán</button>
+        <button id="reset-btn" type="button">Reset</button>
+      </div>
+
+      <div id="guess-message" class="message">Bắt đầu đoán số nào.</div>
+      <div class="status">Số lần đoán: <strong id="guess-count">0</strong></div>
+      <div id="confetti" class="confetti" aria-hidden="true"></div>
+    </section>
+
+    <section class="panel explain">
+      <h2>Giải thích logic tư duy</h2>
+      <ul>
+        <li>Số bí mật được tạo ngẫu nhiên bằng <code>Math.random()</code> trong đoạn [1, 100].</li>
+        <li>Kiểm tra đầu vào: bắt buộc là số nguyên 1-100, nếu sai thì báo lỗi sớm để tránh xử lý sai.</li>
+        <li>Mỗi lần đoán hợp lệ thì tăng bộ đếm, so sánh với số bí mật và thông báo cao/thấp/đúng.</li>
+        <li>Khi đoán đúng thì bật class <code>play</code> cho hiệu ứng confetti bằng CSS animation.</li>
+        <li>Nút Reset tạo số mới, đưa bộ đếm về 0 và reset giao diện để chơi lại.</li>
+      </ul>
+    </section>
+  </main>
+
+  <script src="./js/script.js"></script>
+</body>
+</html>

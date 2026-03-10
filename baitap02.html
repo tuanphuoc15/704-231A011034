@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bài 2 - Todo List</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <main class="page-wrap">
+    <nav class="top-nav">
+      <a href="./index.html">Trang chủ</a>
+      <a href="./lythuyet.html">Lý thuyết</a>
+      <a href="./baitap01.html">Bài 1</a>
+      <a href="./baitap03.html">Bài 3</a>
+    </nav>
+
+    <h1>Bài 2: Danh sách công việc + LocalStorage</h1>
+    <p>Thêm, đánh dấu hoàn thành, xóa công việc và lưu trạng thái sau khi tải lại trang.</p>
+
+    <section class="panel todo-layout">
+      <form id="todo-form" class="todo-form">
+        <input id="todo-input" type="text" placeholder="Nhập công việc cần làm..." required>
+        <button type="submit">Thêm</button>
+      </form>
+
+      <div id="todo-status" class="status">Chưa có công việc nào.</div>
+      <ul id="todo-list" class="todo-list"></ul>
+    </section>
+
+    <section class="panel explain">
+      <h2>Giải thích logic tư duy</h2>
+      <ul>
+        <li>Lưu state trong mảng <code>todos</code> gồm <code>id, text, done</code>; mỗi thao tác (thêm/check/xóa) đều cập nhật mảng này.</li>
+        <li>Mỗi lần state đổi, gọi chung hàm <code>saveAndRender()</code> để lưu LocalStorage và render lại DOM, tránh lặp code.</li>
+        <li>Khi load trang, đọc dữ liệu từ LocalStorage, parse JSON và render để giữ lại danh sách cũ.</li>
+        <li>Render DOM theo từng item để giao diện đồng bộ với state, có thống kê tổng số và số việc hoàn thành.</li>
+      </ul>
+    </section>
+  </main>
+
+  <script src="./js/script.js"></script>
+</body>
+</html>
