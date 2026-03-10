@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kiểm tra mật khẩu khớp</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    form { max-width: 320px; display: grid; gap: 10px; }
+    input, button { padding: 8px; font-size: 15px; }
+    #error-msg { color: red; font-size: 14px; min-height: 18px; }
+  </style>
+</head>
+<body>
+  <form id="reg-form">
+    <input type="password" id="pass1" placeholder="Mật khẩu" required />
+    <input type="password" id="pass2" placeholder="Nhập lại mật khẩu" required />
+    <div id="error-msg"></div>
+    <button type="submit">Đăng ký</button>
+  </form>
+
+  <script>
+    document.getElementById("reg-form").addEventListener("submit", function (e) {
+      const p1 = document.getElementById("pass1").value;
+      const p2 = document.getElementById("pass2").value;
+
+      if (p1 !== p2) {
+        e.preventDefault();
+        document.getElementById("error-msg").textContent = "Mật khẩu không khớp!";
+      } else {
+        document.getElementById("error-msg").textContent = "";
+      }
+    });
+  </script>
+</body>
+</html>

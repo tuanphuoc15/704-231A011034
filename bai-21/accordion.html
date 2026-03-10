@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Accordion đơn giản</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+
+    .accordion-item {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      overflow: hidden;
+    }
+
+    .accordion-header {
+      width: 100%;
+      text-align: left;
+      padding: 12px 16px;
+      background: #f5f5f5;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      background: #fff;
+      padding: 0 16px;
+    }
+
+    .accordion-content p {
+      margin: 12px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="accordion-item">
+    <button class="accordion-header" onclick="toggleAccordion('acc1')">Mục 1</button>
+    <div id="acc1" class="accordion-content">
+      <p>Nội dung của mục 1.</p>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <button class="accordion-header" onclick="toggleAccordion('acc2')">Mục 2</button>
+    <div id="acc2" class="accordion-content">
+      <p>Nội dung của mục 2.</p>
+    </div>
+  </div>
+
+  <script>
+    function toggleAccordion(id) {
+      const content = document.getElementById(id);
+      content.classList.toggle("active");
+      content.style.maxHeight = content.classList.contains("active")
+        ? content.scrollHeight + "px"
+        : "0";
+    }
+  </script>
+</body>
+</html>

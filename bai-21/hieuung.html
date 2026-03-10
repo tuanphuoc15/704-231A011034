@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Parallax Scrolling</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; }
+
+    .hero {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    #parallax-bg {
+      position: absolute;
+      top: -100px;
+      left: 0;
+      width: 100%;
+      height: 130%;
+      background: url("https://picsum.photos/1600/1000") center/cover no-repeat;
+      z-index: -1;
+      will-change: transform;
+    }
+
+    .hero-content {
+      height: 100%;
+      display: grid;
+      place-items: center;
+      color: white;
+      text-shadow: 0 2px 8px rgba(0,0,0,.5);
+      font-size: 42px;
+      font-weight: bold;
+    }
+
+    .content {
+      padding: 60px 20px;
+      max-width: 900px;
+      margin: auto;
+      line-height: 1.7;
+    }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <div id="parallax-bg"></div>
+    <div class="hero-content">Parallax Demo</div>
+  </section>
+
+  <section class="content">
+    <h2>Nội dung bên dưới</h2>
+    <p>Scroll xuống để thấy ảnh nền di chuyển chậm hơn nội dung.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+    <p style="height: 1200px;"></p>
+  </section>
+
+  <script>
+    window.addEventListener("scroll", function () {
+      const scrolled = window.scrollY;
+      const parallax = document.getElementById("parallax-bg");
+      parallax.style.transform = `translateY(${scrolled * 0.5}px)`;
+    });
+  </script>
+</body>
+</html>

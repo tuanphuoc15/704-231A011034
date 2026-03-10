@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bài 21 - Trang chủ 5 bài</title>
+  <style>
+    :root {
+      --bg1: #f4f7ff;
+      --bg2: #e8fff7;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --primary: #0f766e;
+      --primary-hover: #0b5f59;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      color: var(--text);
+      background: linear-gradient(135deg, var(--bg1), var(--bg2));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .wrap {
+      width: 100%;
+      max-width: 760px;
+      background: var(--card);
+      border-radius: 16px;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12);
+      padding: 28px;
+    }
+
+    h1 { font-size: 28px; margin-bottom: 8px; }
+    p { color: var(--muted); margin-bottom: 20px; }
+
+    .menu {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+    }
+
+    .menu a {
+      text-decoration: none;
+      background: var(--primary);
+      color: #fff;
+      padding: 12px 14px;
+      border-radius: 10px;
+      text-align: center;
+      font-weight: 600;
+      transition: background 0.2s ease, transform 0.15s ease;
+    }
+
+    .menu a:hover {
+      background: var(--primary-hover);
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <h1>Bài 21 - Bộ 5 bài JavaScript</h1>
+    <p>Chọn bài bên dưới để mở phần lời giải.</p>
+
+    <nav class="menu">
+      <a href="./tinhchiso.html">Bài 1 - Tính chỉ số</a>
+      <a href="./hieuung.html">Bài 2 - Hiệu ứng</a>
+      <a href="./kiemtramatkhau.html">Bài 3 - Kiểm tra mật khẩu</a>
+      <a href="./accordion.html">Bài 4 - Accordion</a>
+      <a href="./tab-view.html">Bài 5 - Tab View</a>
+    </nav>
+  </main>
+</body>
+</html>
